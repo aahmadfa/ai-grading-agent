@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeFlow AI - Intelligent Essay Grading</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge span {
+            background: #667eea;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #667eea;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dashboard-preview {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            padding: 1.5rem;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.3s;
+        }
+
+        .dashboard-preview:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #fc8181; }
+        .dot-yellow { background: #f6e05e; }
+        .dot-green { background: #68d391; }
+
+        .preview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .preview-card {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .preview-card h4 {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-card .score {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .preview-list {
+            list-style: none;
+        }
+
+        .preview-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            color: #4a5568;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .preview-list li:last-child {
+            border-bottom: none;
+        }
+
+        .badge {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-warning {
+            background: #feebc8;
+            color: #744210;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d3748 100%);
+            color: white;
+        }
+
+        .how-it-works .section-header h2,
+        .how-it-works .section-header p {
+            color: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin: 1rem 0 0.75rem;
+        }
+
+        .step p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* For Whom Section */
+        .for-whom {
+            padding: 6rem 5%;
+            background: #f7fafc;
+        }
+
+        .whom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .whom-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .whom-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+
+        .whom-card p {
+            color: #718096;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: #1a1a2e;
+            color: #a0aec0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .dashboard-preview {
+                transform: none;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .whom-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">GradeFlow AI</div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#for-professors">For Professors</a></li>
+            <li><a href="#for-students">For Students</a></li>
+        </ul>
+        <a href="#get-started" class="nav-cta">Get Started</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>NEW</span>
+                    AI-Powered Grading with Human Oversight
+                </div>
+                <h1>
+                    Grade Essays in Minutes,<br>
+                    Not Hours with <span class="highlight">AI Assistance</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Intelligent essay grading that learns your style, provides detailed feedback, 
+                    and keeps you in control. Save 60-80% of grading time while maintaining quality.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">60-80%</div>
+                        <div class="stat-label">Time Saved</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2-5 min</div>
+                        <div class="stat-label">Per Essay</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">0.90+</div>
+                        <div class="stat-label">Human Agreement</div>
+                    </div>
+                </div>
+                <div class="hero-ctas">
+                    <a href="#get-started" class="btn-primary">Start Free Trial</a>
+                    <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="preview-header">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-card">
+                            <h4>Overall Score</h4>
+                            <div class="score">87/100</div>
+                        </div>
+                        <div class="preview-card">
+                            <h4>Status</h4>
+                            <span class="badge">AI Graded</span>
+                        </div>
+                    </div>
+                    <ul class="preview-list" style="margin-top: 1rem;">
+                        <li>
+                            <span>Thesis & Motive</span>
+                            <span>22/25</span>
+                        </li>
+                        <li>
+                            <span>Evidence & Analysis</span>
+                            <span>26/30</span>
+                        </li>
+                        <li>
+                            <span>Structure & Logic</span>
+                            <span>21/25</span>
+                        </li>
+                        <li>
+                            <span>Mechanics & Style</span>
+                            <span>18/20</span>
+                        </li>
+                    </ul>
+                    <div style="margin-top: 1rem; padding: 0.75rem; background: #ebf8ff; border-radius: 8px; font-size: 0.85rem; color: #2b6cb0;">
+                        ⚡ Pending professor review
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose GradeFlow AI?</h2>
+                <p>Research-backed features designed for transparent, efficient, and fair assessment</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Learns Your Style</h3>
+                    <p>Upload previously graded essays with your feedback. Our AI learns your specific grading patterns and preferences for personalized evaluation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Rubric-Based Precision</h3>
+                    <p>Define custom rubrics with weighted criteria. AI evaluates each dimension separately, eliminating "halo effect" and ensuring fair assessment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Human-in-the-Loop</h3>
+                    <p>Every AI grade requires your approval. Review detailed reasoning, edit feedback, and maintain full control over final grades.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Transparent Feedback</h3>
+                    <p>Students see exactly how their essay maps to each rubric criterion. Research shows this transparency increases trust by 53%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Easy Document Upload</h3>
+                    <p>Upload rubrics as PDFs, images, or Word docs. Our AI extracts structured criteria automatically—no manual data entry needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Private</h3>
+                    <p>Enterprise-grade security with Row Level Security. Your data is isolated and never used to train general AI models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How GradeFlow AI Works</h2>
+                <p>Multi-agent workflow designed for accuracy and transparency</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload Rubric</h3>
+                    <p>Upload your grading rubric as a PDF, image, or document. Our AI extracts criteria and weightings automatically.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Teach Your Style</h3>
+                    <p>Upload 3-5 previously graded essays with your feedback. The AI learns your specific grading patterns and preferences.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Submit & Analyze</h3>
+                    <p>Students submit essays. Multiple AI agents analyze: Reader → Specialists (per criterion) → Synthesis.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Review & Approve</h3>
+                    <p>You review AI reasoning, edit if needed, and approve final grades. Students receive transparent feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Professors / For Students -->
+    <section class="for-whom" id="for-professors">
+        <div class="whom-grid">
+            <div class="whom-card">
+                <h3>For Professors</h3>
+                <p>Reclaim your evenings. Focus on teaching while maintaining grading quality and fairness.</p>
+                <ul class="benefits-list">
+                    <li>Reduce grading time by 60-80%</li>
+                    <li>Eliminate grading fatigue and bias</li>
+                    <li>Maintain full control with approval workflow</li>
+                    <li>Provide detailed, consistent feedback at scale</li>
+                    <li>Track grading analytics and student progress</li>
+                </ul>
+            </div>
+            <div class="whom-card" id="for-students">
+                <h3>For Students</h3>
+                <p>Receive faster, more detailed feedback that helps you understand exactly how to improve.</p>
+                <ul class="benefits-list">
+                    <li>Get grades in hours, not weeks</li>
+                    <li>See clear rubric alignment for every score</li>
+                    <li>Receive specific, actionable improvement tips</li>
+                    <li>Understand expectations before submitting</li>
+                    <li>Build trust through transparent AI grading</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="get-started">
+        <h2>Ready to Transform Your Grading?</h2>
+        <p>Join educators who are saving hours every week while providing better feedback to their students.</p>
+        <a href="#" class="cta-btn">Get Started Free</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 GradeFlow AI. Built for educators, backed by research.</p>
+    </footer>
+</body>
+</html>

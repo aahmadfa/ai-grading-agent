@@ -1,0 +1,280 @@
+
+
+
+
+Capstone Proposal
+
+AI-assisted Grading: Leveraging AI Agents to Automate Subjective Feedback and Grading in Higher Education
+
+
+
+
+
+Aya Abdelhamid
+ayaa@andrew.cmu.edu
+Sulaiyman Ahmad Fauzi
+aahmadfa@andrew.cmu.edu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Project Rationale
+The increasing adoption of Artificial Intelligence (AI) in higher education has significantly transformed teaching, learning, and assessment practices, with particular attention given to the potential of Large Language Models (LLMs) to support grading and feedback generation (Kasneci et al., 2023; Selwyn, 2022). Assessment is a critical component of the educational process, yet it remains time-consuming, resource-intensive, and difficult to scale, especially for subjective and open-ended assignments (Uto & Okano, 2020; Henkel et al., 2024). As a result, there is growing interest in leveraging AI-based systems to improve efficiency while maintaining pedagogical quality (Pack et al., 2024).
+Traditional automated assessment systems have historically relied on rule-based techniques and statistical models, which limited their applicability to objective questions such as multiple-choice or short-answer formats (Uto & Okano, 2020). Although these systems improved efficiency, they failed to capture higher-order cognitive skills such as reasoning, critical thinking, and reflection, which are central to higher education assessment (Selwyn, 2022; Kasneci et al., 2023). Recent advancements in LLMs have addressed some of these limitations by enabling the evaluation of complex written responses and the generation of detailed formative feedback (Henkel et al., 2024; Xiao et al., 2024).
+Despite these advancements, the literature highlights significant concerns regarding current LLM-based assessment implementations. One-shot prompting approaches, where LLMs produce grades and feedback in a single step, are prone to inconsistency, hallucinations, and a lack of transparency in decision-making processes (Jia et al., 2024; Shi et al., 2025). These issues raise ethical concerns related to fairness, accountability, and trust, particularly in high-stakes academic settings (Selwyn, 2022; Wu et al., 2022). Consequently, scholars argue that unstructured use of LLMs is insufficient for responsible educational assessment (Kasneci et al., 2023).
+In response to these limitations, recent research increasingly advocates for agentic AI systems, where LLMs operate as autonomous agents capable of multi-step reasoning, task decomposition, and self-evaluation (Wu et al., 2023; Shi et al., 2025). Agentic AI frameworks enable the assessment process to be broken down into interpretable stages such as response analysis, rubric alignment, feedback generation, and output validation, improving both reliability and transparency (Wu et al., 2023; Jia et al., 2024). This structured approach aligns closely with Information Systems principles, particularly decision support systems, which emphasize supporting human decision-makers rather than replacing them entirely (Wu et al., 2022).
+Furthermore, the integration of human-in-the-loop mechanisms is widely regarded as essential for ensuring ethical and pedagogically sound AI-assisted assessment (Wu et al., 2022; Selwyn, 2022). Empirical studies indicate that student trust and acceptance of AI grading systems increase when human oversight is maintained and assessment criteria are transparent (Ragolane & Patel, 2024; Kasneci et al., 2023). By positioning agentic AI as a decision-support tool rather than a fully autonomous evaluator, this project aims to balance efficiency gains with ethical responsibility and educational integrity (Selwyn, 2022; Shi et al., 2025).
+Based on these considerations, this project proposes the conceptual design and evaluation of an agentic AI-based assessment system for higher education. By addressing identified limitations in existing LLM-based grading approaches and aligning with established Information Systems and ethical frameworks, the project seeks to contribute to ongoing discussions on responsible AI integration in educational assessment (Wu et al., 2023; Selwyn, 2022).
+Project Objectives
+The primary objective of this project is to propose and conceptually evaluate an agentic AI system that supports subjective educational assessment. Specifically, the project aims to:
+Design an agentic AI workflow for grading and feedback generation based on structured rubrics.
+
+
+Examine how agentic AI can improve transparency, consistency, and reliability compared to one-shot LLM approaches.
+
+
+Explore ethical considerations, including bias, hallucination risks, and accountability in AI-assisted assessment.
+
+
+Align the proposed system with Information Systems theories such as decision support and human-in-the-loop design.
+Research Questions
+This project is guided by the following research questions:
+How can agentic AI systems be designed to support subjective educational assessment tasks?
+
+
+In what ways does an agentic AI approach address the limitations of one-shot LLM-based grading?
+
+
+How can human-in-the-loop mechanisms be integrated to ensure ethical and pedagogically sound assessment?
+
+
+What implications does agentic AI have for the future of assessment systems in higher education?
+
+
+Preliminary Timeline
+Phase 1: Capstone Project Proposal (Weeks 1–2)
+Selection of the educational assessment case study and definition of project scope.
+
+
+Refinement of project objectives and research questions focused on agentic AI–based assessment.
+Initial proposal preparation and submission, outlining rationale, intended methodology, and expected outcomes.
+Phase 2: Literature Review and Methodology Development (Weeks 3–4)
+Comprehensive review of scholarly literature on LLM-based assessment, agentic AI systems, and human-in-the-loop approaches.
+
+
+Identification of key concepts, frameworks, and best practices relevant to the project.
+
+
+Development of the conceptual methodology, including the design of the agentic AI assessment workflow and evaluation approach.
+Phase 3: Interim Report – Design and Analysis (Weeks 5–8)
+Design of the agentic AI assessment framework, including definition of individual agents and their roles.
+
+
+Conceptual implementation of the assessment pipeline and workflow modeling.
+
+
+Analysis of potential use cases, ethical risks, and system limitations.
+
+
+Preparation and submission of the interim report documenting progress, design decisions, and preliminary analysis.
+Phase 4: Final Capstone Project (Weeks 9–13)
+Refinement of the proposed agentic AI framework based on interim feedback.
+
+
+Final analysis and discussion of findings in relation to the literature.
+
+
+Preparation of the final capstone report, including conclusions and recommendations.
+
+
+Development and delivery of the final project presentation.
+2. Learning Objectives
+By undertaking this project, the following learning objectives are intended to be achieved:
+Application of Information Systems Knowledge
+To apply core Information Systems concepts such as decision support systems, system architecture, and human–computer interaction in the design of an agentic AI assessment framework.
+
+
+Understanding Agentic AI Architectures
+To develop a conceptual understanding of agentic AI systems, including multi-agent coordination, multi-step reasoning, and autonomous task delegation.
+
+
+Critical Evaluation of AI in Education
+To critically assess the benefits and limitations of AI-assisted assessment tools, with a focus on reliability, transparency, and pedagogical value.
+
+
+Ethical Awareness and Responsibility
+To identify and evaluate ethical challenges associated with AI-based assessment, including bias, hallucinations, and accountability, and explore mitigation strategies.
+
+
+Research and Academic Writing Skills
+To strengthen skills in conducting literature reviews, synthesizing academic sources, and producing structured academic proposals.
+3. Literature Review
+Automated Assessment and Large Language Models
+Automated assessment has been a long-standing research area within educational technology, primarily aimed at reducing instructor workload and improving scalability in grading processes (Uto & Okano, 2020). Early automated grading systems relied on rule-based methods and statistical models, which were effective only for objective assessments such as multiple-choice questions and short factual responses (Uto & Okano, 2020; Selwyn, 2022). These systems lacked the capability to evaluate higher-order cognitive skills, including reasoning, critical thinking, and reflective writing, which are essential components of higher education assessment (Kasneci et al., 2023).
+The emergence of Large Language Models (LLMs) has significantly expanded the potential of automated assessment systems. LLMs demonstrate advanced natural language understanding and generation capabilities, enabling them to assess essays, explanations, and open-ended responses with increasing accuracy (Henkel et al., 2024; Pack et al., 2024). Multiple studies report that LLM-based grading systems can achieve levels of agreement with human graders that are comparable to traditional human-to-human inter-rater reliability, particularly when structured rubrics are provided (Henkel et al., 2024; Xiao et al., 2024). Additionally, LLM-generated feedback has been shown to provide more detailed and personalized formative feedback than earlier automated systems, potentially enhancing student learning outcomes (Kasneci et al., 2023; Pack et al., 2024).
+Despite these advantages, the literature highlights significant limitations in current LLM-based assessment implementations. One-shot prompting approaches, where a single prompt is used to generate both a grade and feedback, are prone to inconsistency, hallucinations, and opaque reasoning processes (Jia et al., 2024; Shi et al., 2025). Such limitations raise concerns regarding fairness, transparency, and reliability, particularly in high-stakes educational contexts (Selwyn, 2022; Jia et al., 2024).
+Agentic AI and Multi-Step Assessment Frameworks
+To mitigate the shortcomings of one-shot LLM-based grading, recent research increasingly emphasizes the use of agentic AI systems. Agentic AI refers to systems in which LLMs operate as autonomous agents capable of planning, reasoning, and executing tasks through structured, multi-step workflows rather than producing immediate single outputs (Wu et al., 2023). These systems decompose complex tasks into smaller, sequential actions, allowing for iterative evaluation and self-correction (Wu et al., 2023; Shi et al., 2025).
+Within the context of educational assessment, agentic AI enables the separation of key assessment stages, including student response interpretation, rubric alignment, feedback generation, and validation of outputs (Wu et al., 2023). This modular approach enhances interpretability and allows educators to inspect and intervene at different stages of the assessment process, addressing concerns related to black-box decision-making (Wu et al., 2022; Selwyn, 2022). From an Information Systems perspective, agentic AI closely aligns with decision support system theory, where technology is designed to assist human decision-makers rather than replace them entirely (Wu et al., 2022).
+Furthermore, agentic AI frameworks have been shown to improve consistency and reduce hallucination risks by incorporating self-reflection and verification mechanisms within the workflow (Shi et al., 2025; Jia et al., 2024). These characteristics make agentic AI particularly suitable for subjective assessment tasks, where transparency and accountability are critical (Kasneci et al., 2023; Selwyn, 2022).
+Human-in-the-Loop and Ethical Considerations
+Ethical considerations are a central theme in the literature on AI-based assessment. Scholars consistently argue that fully autonomous grading systems pose risks related to bias, loss of accountability, and erosion of pedagogical trust (Selwyn, 2022; Wu et al., 2022). As a result, the integration of human-in-the-loop mechanisms is widely recommended to ensure that educators retain oversight and control over final assessment decisions (Wu et al., 2022; Shi et al., 2025).
+Empirical studies indicate that student trust and acceptance of AI-assisted grading systems are significantly higher when human involvement is clearly communicated and when grading criteria are transparent (Ragolane & Patel, 2024; Kasneci et al., 2023). Human-in-the-loop designs also allow for contextual judgment and ethical discretion, which remain challenging for purely automated systems (Selwyn, 2022).
+Moreover, ethical concerns related to hallucinations and misinformation generated by LLMs further support the need for agentic and human-supervised approaches (Jia et al., 2024; Shi et al., 2025). By combining agentic AI with human review, assessment systems can balance efficiency gains with ethical responsibility and educational integrity (Wu et al., 2023; Selwyn, 2022).
+Identified Research Gaps
+Although there is a growing body of research on LLM-based automated grading and feedback systems, the literature reveals a notable gap in studies examining fully integrated agentic assessment pipelines within real educational contexts (Wu et al., 2023; Shi et al., 2025). Most existing studies focus on isolated components, such as grading accuracy or feedback quality, rather than holistic system design and governance (Henkel et al., 2024; Jia et al., 2024).
+This gap suggests a need for further conceptual and applied research exploring how agentic AI systems can be systematically designed, evaluated, and ethically governed in higher education settings (Selwyn, 2022; Wu et al., 2022). Addressing this gap forms the foundation of the proposed project, which aims to explore agentic AI as a responsible decision-support tool for educational assessment.
+4. Methodology
+The emergence of Large Language Models (LLMs) with massive context windows, exemplified by Google’s Gemini 3 Flash, has rendered traditional limitations of analytical writing grading obsolete. It has enabled a shift toward Agentic AI to perform multi-step reasoning tasks with better intelligence, instead of relying on RAG and vector databases for retrieval.
+We propose a methodology to bridge the gap between advanced pedagogical theory and practical software engineering. The proposed architecture leverages n8n for workflow orchestration and Google Gemini 3 Flash for cognitive processing. Unlike simple prompting to a chatbot for grading, this methodology implements a Multi-Agent Orchestration pattern involving the following:
+Reader Agent, 
+Specialist Agents, and
+Synthesis agent.
+This structure is designed to replicate the specific grading style of a human professor while strictly enforcing a "Human-in-the-Loop" (HITL) protocol to ensure ethical accountability and academic integrity.
+Current literature highlights a significant limitation in single-prompt AI grading: consistency and hallucination (Shi, W., et al. (2025). When an LLM is asked to grade an entire essay in one pass, the cognitive load often leads to the "Halo Effect," where strong surface-level features (like perfect grammar) mask deep logical flaws (Fröhlich & Schlippe, 2025). Conversely, a multi-agent system can segment the huge task into specialized blocks. A "Reader Agent" establishes the narrative context of the assignment (including Rubrics, past assignments, etc.), "Specialist Agents" scrutinize specific rubric dimensions, and a "Synthesis Agent" acts as the lead instructor to unify these perspectives. This division of labor mirrors the cognitive processes of expert human graders, who often read a paper once for the "big picture" and again for specific criteria.
+Hence the methodology is also a synthesis of best practices in prompt engineering and educational assessment. We decompose the grading process into verifiable steps including rubric interpretation and use of evidence, which addresses the critical research gap subjective assessment for analytical writing.
+
+Explicit Knowledge
+In analytical writing, the syllabus and rubric acts as the system direction for reasoning. Generically, most rubrics typically evaluate distinct dimensions, which was synthesized by Brandeis University (n.d.):
+
+Dimension
+Description
+Pedagogical Goal
+Thesis & Motive
+The clarity, arguably, and complexity of the central argument.
+To ensure the student moves beyond summary to interpretation.
+Evidence & Analysis
+The use of primary/secondary sources to support claims.
+To verify that claims are grounded in text, not assertion
+Structure & Logic
+The linear progression of ideas and paragraph transitions.
+To assess the "narrative arc" and logical coherence
+Mechanics & Style
+Grammar, citation formatting (APA/MLA), and tone.
+To ensure professional academic communication
+
+
+To effectively test our methodology’s effectiveness on real assignments, we will be using the grading rubric offered by Vatanasakdakul (2026) which was applied to real assignments of her previous students. Paraphrased for conciseness:
+Criteria
+Grading 
+A (Excellent)
+B 
+C 
+D
+F
+Selection of the case study/research topic and literature  analysis
+Good selection of the case study. Report indicates 
+in-depth understanding of the case study and literature analysis..
+…
+…
+…
+…
+Critical analysis and quality of the report 
+
+
+
+Evidence of excellent understanding of the topic, research, data collection and analysis and provide exceptional solutions beyond expectations.
+…
+…
+…
+…
+Theory integration
+
+
+
+Report indicates advanced understanding of theoretical lens in the design and analysis and able to provide appropriate recommendation to target audience that is beyond expectations.
+
+
+…
+…
+…
+…
+Professional presentation including formatting, spelling, grammar, referencing 
+Presentation is of a professional standard, with little or no formatting, spelling, grammar, referencing errors/inconsistencies.
+…
+…
+…
+…
+
+
+"Chain-of-Rubrics" (CoR) Framework (Emergent Mind, 2025)
+The CoR framework, which decomposes complex grading tasks into modular steps. Instead of asking "Grade this essay," the system prompt of a Specialist agent will weigh itself against the rubric. This granular interrogation reduces the likelihood of the model hallucinating a grade based on general impressions. For this study, we will structure our prompts to force the model to output its reasoning before its score, using a technique known as Chain-of-Thought (CoT) grading, which has been shown to significantly increase alignment with human experts. (Lee, G.G., 2023)
+Encoding Tacit Knowledge of an Instructor
+A key rationale for this project is digitizing the tacit knowledge of a specific instructor, which are hard to map due to its subjective nature. To encode this into an AI, we also rely on few-shot prompting. i.e feeding the model examples of previous student essays along with the professor's actual feedback and scores. The AI learns the application of the rubric, not just its definition (G.G. Lee, 2023). This transforms the rubric from a static document into a dynamic, calibrated evaluating tool.
+With reference to the above points, the system prompt of each Specialist agent will constitute has the following anatomy:
+Persona Block (“The aspect of the assignment being evaluated according to the rubric”)
+Few-shot examples (“How did the professor grade their students' papers?”)
+Instruction (“Based on these examples (and/or using the syllabus provided), evaluate the assignment and reason through before outputting a score”.)
+
+
+It is also noteworthy that, if a rubric references a part of a syllabus, the content of the syllabus can be included in the few-shot examples section.
+Hence, the flow of how assignments are graded, following the generic rubric, will appear as so:
+
+Figure 1: AI-assisted grading flow
+AI Agent Team Creation (Based on Rubric, Specialist Names to be Self-Editable)
+
+Figure 2: Agent Orchestration Architecture
+
+Technical Architecture and Tool Selection
+The selection of the technology stack is driven by the need for rapid development, low maintenance, and high scalability. A low-code backend combined with a simple frontend offers the best balance of visual observability and user experience customization.
+n8n is chosen over competitors like Zapier or Make due to its open-source nature, self-hostability, and superior handling of binary data and complex branching logic (Railway, 2026). Deploying n8n on Railway ensures that we are not rate-limited by execution time caps common in cloud tiers. AI grading workflows can take 2-5 minutes per paper; standard cloud functions often timeout after 60 seconds (Solari, 2025)
+The critical differentiator for this project is the use of Gemini 3 Flash. Its 1-2 million token context window is a game-changer for educational AI. Unlike GPT-5 or Claude models, which might require Retrieval Augmented Generation (RAG) to handle a 50-page syllabus, Gemini can ingest the entire course history, lecture notes, and textbook chapters in a single prompt context. This allows the Reader Agent to assess whether a student is referencing specific concepts discussed in week 3 of a course, a feat impossible with smaller context windows.
+We will utilize a managed PostgreSQL database via Supabase. This is non-negotiable for a Human-in-the-Loop workflow. When the AI finishes grading, the data must be stored persistently while waiting for the professor's review. If the n8n container restarts during this wait period, in-memory data would be lost without a database.
+The following can be read in tandem with Figure 2:
+The Reader Agent
+Draft Prompt: "You are a Reader Agent. Your task is to analyze the following student essay and extract the Core Thesis and the Narrative Arc. Do not grade the essay. Output a JSON object containing: thesis_statement (verbatim quote), narrative_summary (a 1-paragraph summary of the argument flow), and topic_adherence (Boolean: does it answer the assignment prompt?). Context: [Insert Assignment Prompt]."
+Parallel Specialist Agents
+Draft Prompt: "You are an expert in Logic and Rhetoric. Evaluate the essay's argumentation based on the provided thesis. Step 1: Identify the main claims. Step 2: Identify the evidence for each claim. Step 3: Evaluate the logical link between claim and evidence. Look for fallacies (strawman, circular reasoning). Step 4: Assign a score (0-100) for Argumentation and write a critique."
+Synthesis Agent
+Draft Prompt: "You are a synthesis. Evaluate the essay's overall quality argumentation based on the provided reasoning by the previous agents. Create an overall summary and final score.”
+Human-in-the-Loop
+The AI never sends a grade directly to a student. The draft will always be saved pending approval by the instructor.
+
+5. Reflection
+This project serves as a convergence point for the theoretical foundations established throughout the Information Systems program and the frontier of applied Artificial Intelligence. The design and execution of this Agentic AI assessment system require a distinct balance of applying existing competencies while aggressively pursuing new technical and architectural knowledge.
+
+The conceptual framework of this project is deeply rooted in core Information Systems theories, particularly Decision Support Systems (DSS) and Process Automation. Rather than viewing AI as a replacement for the educator, we apply the DSS principle that technology should augment human judgment. This guides our architectural choice to implement a Human-in-the-Loop (HITL) design, ensuring that the AI acts as a preparatory analyst while the professor retains final decision-making authority—a critical ethical requirement in educational technology.
+
+Furthermore, we intend to apply the Unified Theory of Acceptance and Use of Technology (UTAUT) to guide our system design, specifically focusing on the construct of Social Influence and Performance Expectancy. Existing literature suggests that student acceptance of automated grading is low when the process is opaque ("black box"). By applying UTAUT, we understand that for this technology to be adopted, it must provide transparent, explainable reasoning. This drives our decision to move away from simple "score generation" toward a system that provides granular, rubric-aligned justifications, thereby fostering the trust required for social adoption in an academic setting.
+
+While our foundation in IS provides the "why," this project challenges us to master the "how" of Agentic AI Architectures, a domain that extends significantly beyond standard classroom curriculum. We intend to move beyond simple "prompt engineering" to acquire expertise in Multi-Agent Orchestration. This involves learning how to decompose a complex cognitive task (grading an essay) into discrete, specialized subtasks (e.g., a "Reader Agent" for context, "Specialist Agents" for rubric criteria, and a "Synthesis Agent" for conflict resolution).
+
+Finally, we seek to deepen our understanding of Ethical AI not just as a theory, but as an engineering constraint. We will learn how to technically implement guardrails against "hallucinations" and the "halo effect," transforming abstract ethical concerns into concrete system validation checks.
+
+References
+Brandeis University. (n.d.). Grading rubric for an essay in a literature class. Writing Program: Davis Grant Project 2010. https://www.brandeis.edu/writing-program/resources/faculty/davis-project-2010/rubrics/uws_plotz_rubrics.html
+Emergent Mind. (2025). Chain-of-rubrics (CoR) prompting framework. https://www.emergentmind.com/topics/chain-of-rubrics-cor-prompting-framework
+Lee, G. G. (2023). Applying large language models and chain-of-thought for automatic scoring. arXiv. https://arxiv.org/abs/2312.03748
+n8n. (2026). Deploy n8n. Railway. https://railway.com/deploy/n8n
+Fröhlich, T., & Schlippe, T. (2025). RubiSCoT: A framework for AI-supported academic assessment. arXiv. https://doi.org/10.48550/arXiv.2510.17309
+Solari. (2025, February 14). Built-in solution for async polling with long-running AI workflows? n8n Community. https://community.n8n.io/t/built-in-solution-for-async-polling-with-long-running-ai-workflows/125678
+Vatanasakdakul, S. (2026). [Insert Title of Paper Provided via Email] [Unpublished manuscript]. [Insert University Name].
+Henkel, J., et al. (2024). Evaluating LLMs for automated scoring in formative assessments. Applied Sciences, 14(3), 1124.
+ Jia, Y., et al. (2024). Assessing the faithfulness of LLM-generated feedback. Proceedings of the Educational Data Mining Conference.
+ Kasneci, E., et al. (2023). ChatGPT for education: Opportunities and challenges. Learning and Individual Differences, 103, 102274.
+Pack, M., et al. (2024). Validity and reliability of GPT-4 for automated essay scoring. EMNLP Findings.
+ Ragolane, M., & Patel, K. (2024). Student acceptance of AI grading through the Technology Acceptance Model. Information, 15(2), 89.
+Selwyn, N. (2022). Reclaiming pedagogy in the age of AI. UNESCO.
+Shi, W., et al. (2025). LLM-based automated grading with human-in-the-loop. arXiv.
+
+ Uto, M., & Okano, M. (2020). A review of automated essay scoring systems. Educational Data Mining.
+Wu, T., et al. (2023). AutoGen: Enabling next-generation LLM applications via multi-agent conversation. arXiv.
+Wu, X., et al. (2022). Human-in-the-loop machine learning: A systematic review. ACM Computing Surveys.
+
+
+
+
+
+
